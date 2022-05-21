@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="/currency-converter/script.js"></script>
+    <link rel="stylesheet" href="/currency-converter/styles/styles.css">
+    <link rel="stylesheet" href="/currency-converter/styles/form.css">
+    <title>Kalkulator walut</title>
+</head>
+
+<body>
+    <form class="form">
+        <fieldset class="form__fieldset">
+            <legend class="form__legend">Konwerter walut</legend>
+            <ul class="form__list">
+                <li class="form__listItem">
+                    <label class="form__label">
+                        Wprowadź kwotę do przeliczenia <input class="form__input" id="js-startCurrency" type="number">
+                    </label>
+                    <select class="form__selectBtn" id="js-startCurrencyOption">
+                        <option value="PLN">PLN</option>
+                        <option value="EUR">EUR</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </li>
+                <li class="form__listItem">
+                    <label class="form__label">
+                        Kwota po przeliczeniu</label>
+                    <select class="form__selectBtn" id="js-endCurrencyOption">
+                        <option value="PLN">PLN</option>
+                        <option value="EUR">EUR</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </li>
+            </ul>
+            <br>
+            <label class="form__output" id="js-output">Kwota po przeliczeniu: </label>
+        </fieldset>
+    </form>
+</body>
+
+</html>
