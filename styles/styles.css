@@ -9,3 +9,7 @@ html {
 body {
     background-color: rgba(47, 197, 17, 0.219);
 }
+
+.hidden {
+    visibility: hidden;
+}
