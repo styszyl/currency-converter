@@ -20,27 +20,21 @@
     <form class="form">
         <fieldset class="form__fieldset">
             <legend class="form__legend">Konwerter walut</legend>
-            <ul class="form__list">
-                <li class="form__listItem">
-                    <label class="form__label">
-                        Wprowadź kwotę do przeliczenia <input class="form__input" id="js-startCurrency" type="number">
-                    </label>
-                    <select class="form__selectBtn" id="js-startCurrencyOption">
-                        <option value="PLN">PLN</option>
-                        <option value="EUR">EUR</option>
-                        <option value="USD">USD</option>
-                    </select>
-                </li>
-                <li class="form__listItem">
-                    <label class="form__label">
-                        Waluta docelowa</label>
-                    <select class="form__selectBtn" id="js-endCurrencyOption">
-                        <option value="PLN">PLN</option>
-                        <option value="EUR">EUR</option>
-                        <option value="USD">USD</option>
-                    </select>
-                </li>
-            </ul>
+            <label class="form__label">
+                Wprowadź kwotę do przeliczenia <input class="form__input" id="js-startCurrency" type="number">
+            </label>
+            <select class="form__selectBtn" id="js-startCurrencyOption">
+                <option value="PLN">PLN</option>
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+            </select>
+            <label class="form__label">
+                Waluta docelowa</label>
+            <select class="form__selectBtn" id="js-endCurrencyOption">
+                <option value="PLN">PLN</option>
+                <option value="EUR" selected="selected">EUR</option>
+                <option value="USD">USD</option>
+            </select>
             <br>
             <label class="form__error hidden" id="js-error"></label>
             <label class="form__output hidden" id="js-output">Kwota po przeliczeniu: </label>
