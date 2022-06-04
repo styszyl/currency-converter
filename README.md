@@ -1,2 +1,5 @@
 # currency-converter
-Kiedyś coś tu będzie
+Currency converter, with 3 options.
+
+## DEMO
+https://styszyl.github.io/currency-converter/
