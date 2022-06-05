@@ -14,50 +14,64 @@
         error.classList.toggle("hidden", (startCurrency.value > 0));
     }
 
+    const errorMsgTransfer = (errorText) => {
+        return error.innerHTML = `${errorText}`
+    }
+
+    const outputMsgTransfer = (outputText) => {
+        return outputMsg.innerHTML = `${outputText}`
+    }
+
     const calculateCurrency = () => {
+        outputMsgClear();
+        errorMsgClear();
+        let result = ""
         switch (true) {
             case (startCurrency.value <= 0):
-                error.innerHTML = "Wprowadzona kwota musi być wieksza niż 0";
-                break;
+                return errorMsgTransfer("Wprowadzona kwota musi być wieksza niż 0");
             case (startCurrencySelector.value == endCurrencySelector.value):
-                outputMsg.innerHTML = `Kwota po przeliczeniu wynosi : ${startCurrency.value} ${endCurrencySelector.value}`;
+                result = `${startCurrency.value} ${endCurrencySelector.value}`;
                 break;
             case (startCurrencySelector.value == "PLN" && endCurrencySelector.value == "EUR"):
-                outputMsg.innerHTML = `Kwota po przeliczeniu wynosi : ${startCurrency.value * 0.22} ${endCurrencySelector.value}`;
+                result = `${startCurrency.value * 0.22} ${endCurrencySelector.value}`;
                 break;
             case (startCurrencySelector.value == "PLN" && endCurrencySelector.value == "USD"):
-                outputMsg.innerHTML = `Kwota po przeliczeniu wynosi : ${(startCurrency.value * 0.23).toFixed(2)} ${endCurrencySelector.value}`;
+                result = `${(startCurrency.value * 0.23).toFixed(2)} ${endCurrencySelector.value}`;
                 break;
             case (startCurrencySelector.value == "EUR" && endCurrencySelector.value == "PLN"):
-                outputMsg.innerHTML = `Kwota po przeliczeniu wynosi : ${(startCurrency.value * 4.65).toFixed(2)} ${endCurrencySelector.value}`;
+                result = `${(startCurrency.value * 4.65).toFixed(2)} ${endCurrencySelector.value}`;
                 break;
             case (startCurrencySelector.value == "EUR" && endCurrencySelector.value == "USD"):
-                outputMsg.innerHTML = `Kwota po przeliczeniu wynosi : ${(startCurrency.value * 1.06).toFixed(2)} ${endCurrencySelector.value}`;
+                result = `${(startCurrency.value * 1.06).toFixed(2)} ${endCurrencySelector.value}`;
                 break;
             case (startCurrencySelector.value == "USD" && endCurrencySelector.value == "PLN"):
-                outputMsg.innerHTML = `Kwota po przeliczeniu wynosi : ${(startCurrency.value * 4.38).toFixed(2)} ${endCurrencySelector.value}`;
+                result = `${(startCurrency.value * 4.38).toFixed(2)} ${endCurrencySelector.value}`;
                 break;
             case (startCurrencySelector.value == "USD" && endCurrencySelector.value == "EUR"):
-                outputMsg.innerHTML = `Kwota po przeliczeniu wynosi : ${(startCurrency.value * 0.94).toFixed(2)} ${endCurrencySelector.value}`;
+                result = `${(startCurrency.value * 0.94).toFixed(2)} ${endCurrencySelector.value}`;
                 break;
         }
+        return result;
     }
-    startCurrency.addEventListener("input", () => {
-        outputMsgClear();
-        errorMsgClear();
-        calculateCurrency();
-    });
 
-    startCurrencySelector.addEventListener("change", () => {
-        outputMsgClear();
-        errorMsgClear();
-        calculateCurrency(); 
-    });
+    const calculateCurrencyResult = () => {
+        const calculatedResult = calculateCurrency();
+        const txt = "Kwota po przeliczeniu wynosi: "
+        return outputMsgTransfer(`${txt} ${calculatedResult}`);
+    }
 
-    endCurrencySelector.addEventListener("change", () => {
-        outputMsgClear();
-        errorMsgClear();
-        calculateCurrency(); 
-    });
+    const init = () => {
+        startCurrency.addEventListener("input", () => {
+            calculateCurrencyResult();
+        });
 
+        startCurrencySelector.addEventListener("change", () => {
+            calculateCurrencyResult();
+        });
+
+        endCurrencySelector.addEventListener("change", () => {
+            calculateCurrencyResult();
+        });
+    };
+    init();
 }
